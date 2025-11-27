@@ -29,7 +29,7 @@ jobs:
         run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v5
         with:
           name: ASP-app
           path: '/published/**'
@@ -55,4 +55,5 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2142DBA0BD57489B91B782B7608A303E }}
           package: .
+
 
